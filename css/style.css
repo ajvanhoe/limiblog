@@ -1,0 +1,441 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.title {
+  font-size: 40px;
+  font-weight: 300;
+  color: gray;
+}
+.header-wrapper {
+  background-color: #d65614;
+  position: relative;
+}
+.header {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img {
+  width: 150px;
+}
+.logo a {
+  display: flex;
+}
+/* end logo */
+.nav-bar {
+  display: flex;
+}
+.nav-bar ul {
+  display: flex;
+}
+.nav-bar li {
+  list-style: none;
+  position: relative;
+}
+.nav-bar li.dropdown-wrapper a:after {
+  content: '\25BE';
+  color: white;
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+}
+.nav-bar li.dropdown-wrapper:hover .dropdown {
+  display: block;
+}
+.nav-bar li a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 18px;
+  font-size: 14px;
+  border-radius: 3px;
+}
+.nav-bar li:hover a:after  {
+  color: black;
+}
+.nav-bar li .dropdown {
+  display: none;
+}
+.burger {
+  width: 50px;
+  background-color: transparent;
+  border: 0;
+  display: none;
+  cursor: pointer;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid gray;
+  width: 140px;
+}
+.nav-bar li .dropdown li {
+  margin-bottom: 8px;
+}
+.nav-bar li .dropdown li:last-child {
+  margin-bottom: 0;
+}
+.nav-bar li .dropdown li a {
+  color: black;
+}
+.nav-bar li .dropdown a:after {
+  display: none;
+}
+/* end nav bar */
+
+/* start main banner */
+  .main-banner {
+    background-image: url('https://beingcovers.com/media/facebook-cover/Blue-Sea-facebook-covers-3257.jpeg');
+    background-size: cover;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+  }
+  .banner-text {
+    text-align: center;
+    color: black;
+  }
+  .banner-text h1 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+  }
+  .banner-text p {
+    font-size: 16px;
+  }
+/* end main banner */
+
+/* start box wrapper */
+  .box-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0;
+  }
+  .box {
+    width: 33.33%;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+  }
+  .box:nth-child(3n+0) {
+    padding-right: 0;
+  }
+  .box h2 {
+    color: gray;
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+  .box p {
+    font-size: 14px;
+    color: gray;
+    padding-bottom: 16px;
+  }
+  .box a {
+    color: orange;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  /* start events */
+  .box-wrapper.events .box {
+    width: 32%;
+    padding-right: 0;
+    margin-right: 2%;
+  }
+  .box-wrapper.events .box:nth-child(3n+0) {
+    margin-right: 0;
+  }
+  .box-wrapper.events img {
+    width: 100%;
+  }
+  .box-wrapper.events h3 {
+    margin: 20px 0 10px;
+    font-size: 20px;
+  }
+  .box-wrapper.events span {
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 10px;
+  }
+  .box-wrapper.events p {
+    font-size: 14px;
+    color: gray;
+  }
+  /* start blog */
+  .box-wrapper.blog img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .box-wrapper.blog .box {
+    width: 49%;
+    margin-right: 2%;
+    padding-right: 0;
+  }
+  .box-wrapper.blog .box:nth-child(2n+0) {
+    margin-right: 0; 
+  }
+  .blog-button {
+    text-align: center;
+  }
+  .blog-button a {
+    color: gray;
+    border: 1px solid gray;
+    min-width: 70px;
+    display: inline-flex;
+    padding: 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  /* start team */
+  .box-wrapper.team .box {
+    width: 23.5%;
+    margin-right: 2%;
+    padding: 0;
+  }
+  .box-wrapper.team .box:nth-child(4n+0) {
+    margin-right: 0;
+  }
+  .box-wrapper.team img {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .box-wrapper.team h3 a {
+    font-size: 24px;
+    color: #5e5e5e;
+  }
+/* end box wrapper */
+
+/* start subscribe */
+  .subscribe {
+    background-color: #f8f8f8;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 60px 0;
+    margin: 100px 0 70px;
+  }
+  .subscribe-content {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .subscribe-content h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: gray;
+    padding-bottom: 20px;
+    font-weight: 300;
+  }
+  .subscribe-content form {
+    display: flex;
+  }
+  input[type="text"] {
+    width: 78%;
+    border: 1px solid gray;
+    background-color: white;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  input[type="submit"] {
+    width: 22%;
+    border: 1px solid gray;
+    border-left: none;
+    background-color: white;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: gray;
+    color: white;
+  }
+  input[type="text"]::placeholder {
+    color: #bbbbbb;
+    opacity: 1;
+  }
+  input[type="text"]:-ms-input-placeholder {
+    color: #bbbbbb;
+  }
+  input[type="text"]::-ms-input-placeholder {
+    color: #bbbbbb;
+  }
+/* end subscribe */
+
+/* start footer */
+
+  .footer-wrapper {
+    background-color: #d65614;
+    padding: 40px 0;
+  }
+  .footer {
+    text-align: center;
+  }
+  .nav-list {
+    list-style: none;
+  }
+  .nav-list li {
+    display: inline-block;
+    padding-right: 24px;
+    position: relative;
+  }
+  .nav-list li:last-child {
+    padding-right: 0;
+  }
+  .nav-list li:last-child:after {
+    display: none;
+  }
+  .nav-list li:after {
+    content: '|';
+    position: absolute;
+    right: 8px;
+    color: white;
+  }
+  .nav-list a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  /* end nav list */
+  .social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  .social-list li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 10px;
+  }
+  .social-list li:last-child {
+    margin-right: 0;
+  }
+  .social-list li:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    bottom: 3px;
+    left: 3px;
+    border: 1px dotted #d65614;
+    border-radius: 50%;
+  }
+  .social-list a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 999;
+  }
+  .social-list svg {
+    width: 12px;
+    height: 12px;
+    color: #d65614;
+  }
+  .legal {
+    font-size: 13px;
+    color: white;
+  }
+  /* end social list */
+
+/* end footer */
+
+/* Responsive */ 
+@media (max-width: 768px) {
+  .nav-bar {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: orange;
+    padding: 60px 0;
+  }
+  .nav-bar li {
+    margin-bottom: 10px;
+  }
+  .nav-bar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .burger {
+    display: block;
+  }
+  .main-banner {
+    min-height: 300px;
+  }
+  .box {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .box h2 {
+    font-size: 24px;
+  }
+  .box-wrapper.events .box {
+    width: 100%;
+    margin: 0;
+  }
+  .box-wrapper.blog .box {
+    width: 100%;
+    margin: 0;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .box-wrapper.team .box {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .nav-bar {
+    display: flex !important;
+  }
+  .nav-bar li a:hover {
+    background-color: white;
+    color: black;
+  }
+}
+@media (max-width: 470px) {
+  input[type="text"] {
+    width: 70%;
+  }
+  input[type="submit"] {
+    width: 30%;
+  }
+}

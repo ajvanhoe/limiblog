@@ -1,0 +1,18 @@
+.banner-text {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+.box-wrapper .box.animation {
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-50%);
+  }
+  40%     { opacity: 0; }
+  100%    { opacity: 1; }
+}

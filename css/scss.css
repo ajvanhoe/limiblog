@@ -1,0 +1,12 @@
+body .test {
+  display: block;
+  -webkit-transform: translateY(290px);
+  -ms-transform: translateY(290px);
+  transform: translateY(290px); }
+  body .test p {
+    color: red;
+    -webkit-transform: translateX(90px);
+    -ms-transform: translateX(90px);
+    transform: translateX(90px); }
+
+/*# sourceMappingURL=scss.css.map */
