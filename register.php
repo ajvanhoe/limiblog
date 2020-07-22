@@ -3,6 +3,7 @@ require_once('core/start.php');
 
 if(Input::exists('post')) {
 
+  
 	// validacija podataka
 	// klasa za validaciju
 
@@ -25,70 +26,100 @@ if(Input::exists('post')) {
 		Session::set('message', 'There was a trouble creating your account, please try again!');
 	}
 	
-
-	
-	
 }
-
-
-
-
 ?>
 
 
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>LimiSchool Blogger · Signin</title>
 
-<!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<head>
 
-<!-- Custom styles for this template -->
-<link href="./css/signin.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>LimiBlog - Register</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="admin/css/sb-admin.css" rel="stylesheet">
 
 </head>
-<body class="text-center">
 
-  <form method="POST" action="register.php" class="form-signin">
+<body class="bg-dark">
 
-  	<?php 
-  	
-  	if(Session::exists('message')) {
-  		echo '<h3 class="h3 mb-3 font-weight-normal">';
-  		echo Session::get('message');
-  		echo '</h3>';
-  	}
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Register an Account</div>
+      <div class="card-body">
 
 
-  	?>
+        <form method="POST" action="register.php">
 
-	<h1 class="h3 mb-3 font-weight-normal">Register</h1>
+          <div class="form-group">
 
-  	<label for="inputEmail" class="sr-only">Email address</label>
-  	<input type="email" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-label-group">
+                  <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
+                  <label for="firstName">Username</label>
+                </div>
+              </div>
+            </div>
 
-  	<label for="inputEmail" class="sr-only">Username</label>
-  	<input type="text" name="username" class="form-control mb-3" placeholder="Username" required autofocus>
+          </div>
 
-  	<label for="inputPassword" class="sr-only">Password</label>
-  	<input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+              <label for="inputEmail">Email address</label>
+            </div>
+          </div>
 
-  	<label for="inputPassword" class="sr-only">Password re-type</label>
-  	<input type="password" name="repass" class="form-control mb-3" placeholder="Retype Password" required>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                  <label for="inputPassword">Password</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="password" name="retype" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                  <label for="confirmPassword">Confirm password</label>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <button type="submit" class="btn btn-primary btn-block">Register</button>          
+
+        </form>
 
 
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  
-  </form>
 
+        <div class="text-center">
+          <a class="d-block small mt-3" href="login.php">Login Page</a>
+          <!-- <a class="d-block small" href="forgot-password.html">Forgot Password?</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="admin/vendor/jquery/jquery.min.js"></script>
+  <script src="admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 </body>
+
 </html>
