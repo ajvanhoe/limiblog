@@ -11,7 +11,7 @@
   <body>
     
     <?php  
-      include('layouts/navbar.php');
+      include('includes/navbar.php');
     ?>
 
     <section class="main-banner">
