@@ -3,7 +3,7 @@
 class Database {
 	private static $connection = null;
 
-	private $source = "mysql:host=localhost;dbname=prodavnica;charset=utf8",
+	private $source = "mysql:host=localhost;dbname=limischool;charset=utf8",
 			$user = "root",
 			$pass = "",
 

@@ -1,23 +1,35 @@
 <?php
 require_once('core/start.php');
 
-
-
 if(Input::exists('post')) {
-	$username = Input::get('username');
-	$password = Input::get('password');
-	
-	// upit u bazu - preskacemo
 
-	if($korisnici[$username] == $password) {
-		Session::set('username', $username);
-		Redirect::to('profile.php');
+	// validacija podataka
+	// klasa za validaciju
+
+	// registracija korisnika
+	// user klasa
+
+	$db = Database::connect();
+	$fields = [
+		'id' 		=> NULL,
+		'username' 	=> Input::get('username'),
+		'email' 	=> Input::get('email'),
+		'password' 	=> Input::get('password')
+	];
+
+	if( $db->insert('users', $fields) ) {
+		// redirekt
+		Session::set('message', 'You have been registered successfuly and can now login!');
+		Redirect::to('login.php');
 	} else {
-		echo "Username ili password nisu validni";
+		Session::set('message', 'There was a trouble creating your account, please try again!');
 	}
+	
 
-
+	
+	
 }
+
 
 
 
@@ -36,39 +48,38 @@ if(Input::exists('post')) {
 
 <!-- Custom styles for this template -->
 <link href="./css/signin.css" rel="stylesheet">
-  </head>
 
+</head>
+<body class="text-center">
 
-  <body class="text-center">
-  
-  <form class="form-signin">
+  <form method="POST" action="register.php" class="form-signin">
 
-    
-    <?php 
-    
-    if(Session::exists('message')) {
-      echo '<h3 class="h3 mb-3 font-weight-normal">';
-      echo Session::get('message');
-      echo '</h3>';
-    }
-
-
-    ?>
-
-
-	<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  	<label for="inputEmail" class="sr-only">Email address</label>
-  	<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  	<?php 
   	
-  	<label for="inputPassword" class="sr-only">Password</label>
-  	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-  	<div class="checkbox mb-3">
-    
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
+  	if(Session::exists('message')) {
+  		echo '<h3 class="h3 mb-3 font-weight-normal">';
+  		echo Session::get('message');
+  		echo '</h3>';
+  	}
 
-  </div>
+
+  	?>
+
+	<h1 class="h3 mb-3 font-weight-normal">Register</h1>
+
+  	<label for="inputEmail" class="sr-only">Email address</label>
+  	<input type="email" name="email" class="form-control mb-3" placeholder="Email address" required autofocus>
+
+  	<label for="inputEmail" class="sr-only">Username</label>
+  	<input type="text" name="username" class="form-control mb-3" placeholder="Username" required autofocus>
+
+  	<label for="inputPassword" class="sr-only">Password</label>
+  	<input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+
+  	<label for="inputPassword" class="sr-only">Password re-type</label>
+  	<input type="password" name="repass" class="form-control mb-3" placeholder="Retype Password" required>
+
+
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   
   </form>
