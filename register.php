@@ -2,35 +2,61 @@
 require_once('core/start.php');
 
 if(Input::exists('post')) {
+  	// validacija podataka
+  	$validate = new Validate();
+    $rules = [
+      'username' => [
+          'required'  => true,
+          'min'       => 2,
+          'max'       => 60
+      ],
 
-  
-	// validacija podataka
-	// klasa za validaciju
+      'password' => [
+        'required' => true,
+        'min'      => 6
+      ],
 
-	// registracija korisnika
-	// user klasa
+      'retype' => [
+        'required' => true,
+        'matches' => 'password'
 
-	$db = Database::connect();
-	$fields = [
-		'id' 		=> NULL,
-		'username' 	=> Input::get('username'),
-		'email' 	=> Input::get('email'),
-		'password' 	=> Input::get('password')
-	];
+      ],
 
-	if( $db->insert('users', $fields) ) {
-		// redirekt
-		Session::set('message', 'You have been registered successfuly and can now login!');
-		Redirect::to('login.php');
-	} else {
-		Session::set('message', 'There was a trouble creating your account, please try again!');
-	}
-	
-}
+      'email' => [
+            'required' => true,
+            'email'    => true,
+      ]
+
+    ];
+    $validation = $validate->check($_POST, $rules);
+
+    if($validation->passed()) {
+      // registracija korisnika
+      $user = new User();
+
+      $fields = [
+          NULL,   // id
+          Input::get('username'),
+          Input::get('email'),   
+          Hash::make( Input::get('password') ), // hashovanje password-a
+          'user',
+          date('Y-m-d H:i:s'), // created_at
+          date('Y-m-d H:i:s')  // updated_at
+      ];
+      // kreiranje korisnika
+      $user->create($fields);
+      // redirekt
+      Session::set('success', 'You have been registered successfuly and can now login!');
+      Redirect::to('login.php');    
+
+  } else { // u slucaju da validacija nije prosla
+    // setovanje gresaka --> Session
+    Session::set('errors', $validation->errors());
+  }
+
+} // if Input::exists
+
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
