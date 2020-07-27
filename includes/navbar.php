@@ -26,42 +26,61 @@
                 </a>
               </li>
 
-              <li>
-                <a href="login.php">
-                  Login
-                </a>
-              </li>
+              <?php
+                if(isset($categories)) {
+                  foreach ($categories as $category) {
+                    $li ='<li><a href="categories.php?category='.$category->title.'">'.$category->title.'</a></li>';
+                    echo $li;
+                  }
 
-              <li>
-                <a href="register.php">
-                  Register
-                </a>
-              </li>
-  
-              <!-- <li class="dropdown-wrapper">
-                <a href="#">
-                  Dropdown
-                </a>
-                <ul class="dropdown">
-                  <li>
-                    <a href="#">
-                      Drop 1
-                    </a>
-                  </li>
-  
-                  <li>
-                    <a href="#">
-                      Drop 2
-                    </a>
-                  </li>
-  
-                  <li>
-                    <a href="#">
-                      Drop 3
-                    </a>
-                  </li>
-                </ul>
-              </li> -->
+                }
+
+
+
+              if(!isset($user) || !$user->isLoggedIn()) {
+               echo '<li>
+                      <a href="login.php">
+                        Login
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="register.php">
+                        Register
+                      </a>
+                    </li>';
+                } else {
+                echo '<li class="dropdown-wrapper">
+                    <a href="#">' . $user->data()->username .                    
+                    '</a>
+                    <ul class="dropdown">
+                      <li>
+                        <a href="../admin/profile.php">
+                          Profile
+                        </a>
+                      </li>
+      
+                      <li>
+                        <a href="../admin/create.php">
+                          New post
+                        </a>
+                      </li>
+      
+                      <li>
+                        <a href="logout.php">
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </li>';
+
+
+                }
+
+                          ?>
+
+
+             
 
               <!-- end dropdown -->
 
