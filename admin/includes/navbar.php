@@ -24,7 +24,7 @@
           <a class="dropdown-item" href="profile.php">Profile</a>
           <!-- <a class="dropdown-item" href="#">Activity Log</a> -->
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="../logout.php">Logout</a>
+          <a class="dropdown-item" href="../public/logout.php">Logout</a>
         </div>
       </li>
     </ul>

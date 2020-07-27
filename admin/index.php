@@ -1,3 +1,15 @@
+<?php
+  require_once('../core/start.php');
+  $user = new User();
+  $user->checkLogin();
+
+  if(!$user->isLoggedIn()) {
+    Redirect::to('../public/index.php');
+  }
+  
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +46,16 @@
           </li>
           <li class="breadcrumb-item active">Overview</li>
         </ol>
+
+
+  <!-- Poruke -->
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <?php 
+        include('../includes/messages.php');
+      ?>
+    </div>
+  </div>
 
 
         <div class="card">
