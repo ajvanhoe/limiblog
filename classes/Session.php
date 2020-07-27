@@ -20,4 +20,13 @@ class Session {
 		}
 	}
 
+	public static function msg($key) {
+		if(self::exists($key)) {
+			$message = self::get($key);
+			self::delete($key);
+			return $message;
+		}
+		return null;
+	}
+
 }

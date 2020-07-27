@@ -80,6 +80,17 @@ if(Input::exists('post')) {
 
 <body class="bg-dark">
 
+  <!-- Poruke -->
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <?php 
+        include('../includes/messages.php');
+      ?>
+    </div>
+  </div>
+
+  
+
   <div class="container">
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
