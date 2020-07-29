@@ -112,7 +112,7 @@
     </section>
     <!-- end blog -->
 
-    <section class="subscribe">
+    <section class="subscribe" id="subscribe">
       <div class="container">
         <div class="subscribe-content">
           <h2>Subscribe for Updates</h2>
@@ -120,6 +120,13 @@
             <input type="text" name="email" id="subscribe" placeholder="Email">
             <input type="submit" value="Subscribe">
           </form>
+
+          <?php 
+            if(Session::exists('message')) {
+              echo Session::msg('message');
+            }
+          ?>
+          
         </div>
       </div>
     </section>

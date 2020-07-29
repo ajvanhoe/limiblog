@@ -9,11 +9,11 @@ if(Input::exists()) {
 	$email = Input::get('email');
 
 	if( $db->insert('subscriptions', [null, $email, date('Y-m-d H:i:s')]) ) {
-		//Session::set('success', 'You have subscribed to our blog...');
+		Session::set('message', 'You have subscribed to our blog...');
 	} else {
-		//Session::set('success', 'You have subscribed to our blog...');
+		Session::set('message', 'There was an error, please try again later.');
 	}
 	
 }
 
-Redirect::to('index.php');
+Redirect::to('index.php#subscribe');

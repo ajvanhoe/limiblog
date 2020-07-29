@@ -66,6 +66,9 @@ class User {
 	}
 
 
+	// dodati metod hasRole
+
+
 
 	// pomocni metodi
 	public function data() {

@@ -5,7 +5,7 @@
 
   if(Input::exists('get')) {
 
-      $category = $db->find('categories', 'title', Input::get('category'))->first();
+      $selected_category = $db->find('categories', 'title', Input::get('category'))->first();
   }  
 
 ?>
@@ -22,19 +22,21 @@
   </head>
   <body>
     
+    <!-- Navbar -->
     <?php  
       include('../includes/navbar.php');
     ?>
 
+    <!-- Banner -->
     <section class="main-banner">
       <div class="container">
         <div class="banner-text">
           <h1>
             <?php
-              echo (isset($category)) ? $category->title : 'Categories';
+              echo (isset($selected_category)) ? $selected_category->title : 'Categories';
             ?>
           </h1>
-          <p><?php echo $category->description; ?></p>
+          <p><?php echo $selected_category->description; ?></p>
         </div>
       </div>
     </section>
