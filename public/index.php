@@ -3,6 +3,10 @@
   $db = Database::connect();
   $categories = $db->query("SELECT * FROM categories")->results();
 
+  // dodati Post klasu
+  $blogs = $db->query("SELECT * FROM posts WHERE category_id = 2 LIMIT 2")->results();
+  $events = $db->query("SELECT * FROM posts WHERE category_id = 1 LIMIT 3")->results();
+
   $user = new User();
   $user->checkLogin();
 
@@ -42,48 +46,48 @@
     <!-- end box wrapper -->
 
     <section class="container">
+
+
       <h1 class="title">Upcoming events</h1>
       <div class="box-wrapper events">
-        <div class="box">
-          <img src="./img/event/1.jpg" alt="">
-          <h3>
-            <a href="javascript:;">
-              Rihanna, Eminem on stage
-            </a>
-          </h3>
-          <span>Lorem ipsum dolor sit amet</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-        </div>
 
-        <div class="box">
-          <img src="./img/event/2.jpg" alt="">
-          <h3>
-            <a href="javascript:;">
-              Rihanna, Eminem on stage
-            </a> 
-          </h3>
-          <span>Lorem ipsum dolor sit amet</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+      <?php 
 
-        <div class="box">
-          <img src="./img/event/3.jpg" alt="">
+        if(isset($events)) {
+
+          foreach ($events as $event) {
+                 
+        $img = './img/uploads/' . $event->img;
+        $box = '<div class="box">
+          <img src="'.$img.'" alt="" class="event-img">
           <h3>
-            <a href="javascript:;">
-              Rihanna, Eminem on stage
-            </a>
+            <a href="javascript:;">' . $event->title .              
+            '</a>
           </h3>
-          <span>Lorem ipsum dolor sit amet</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+          
+          <p>'.$event->body.'</p>
+        </div>';
+        echo $box;
+
+          }
+        }
+
+      ?>
+
       </div>
     </section>
     <!-- end box events -->
 
+
+
     <section class="container">
+
       <h1 class="title">Latest blog</h1>
+
       <div class="box-wrapper blog">
+
+
         <div class="box">
           <img src="./img/blog/1.jpg" alt="">
             <h3>  
@@ -105,6 +109,9 @@
           <span>Lorem ipsum dolor sit amet</span>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
+
+
+        
       </div>
       <div class="blog-button">
         <a href="#">see more</a>

@@ -21,6 +21,7 @@
     $target_dir = PUBLIC_DIR . '/img/uploads/';
     $img_name = time() . "-" . basename($_FILES["img"]["name"]);
     $target_file = $target_dir . $img_name;
+    // resize slike    
     move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
 
     // pripremanje areja za ubacivanje

@@ -373,6 +373,14 @@
 
 /* end footer */
 
+
+.event-img {
+  height: 400px;
+  width: 260px;
+}
+
+
+
 /* Responsive */ 
 @media (max-width: 768px) {
   .nav-bar {
