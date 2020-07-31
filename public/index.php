@@ -4,8 +4,8 @@
   $categories = $db->query("SELECT * FROM categories")->results();
 
   // dodati Post klasu
-  $blogs = $db->query("SELECT * FROM posts WHERE category_id = 2 LIMIT 2")->results();
-  $events = $db->query("SELECT * FROM posts WHERE category_id = 1 LIMIT 3")->results();
+  $blogs = $db->query("SELECT * FROM posts WHERE category_id = 2 ORDER BY created_at DESC LIMIT 2")->results();
+  $events = $db->query("SELECT * FROM posts WHERE category_id = 1 ORDER BY created_at LIMIT 3")->results();
 
   $user = new User();
   $user->checkLogin();
@@ -56,17 +56,17 @@
 
         if(isset($events)) {
 
-          foreach ($events as $event) {
+        foreach ($events as $event) {
                  
         $img = './img/uploads/' . $event->img;
         $box = '<div class="box">
           <img src="'.$img.'" alt="" class="event-img">
           <h3>
-            <a href="javascript:;">' . $event->title .              
+            <a href="posts.php?post='.$event->id.' ">' . $event->title .              
             '</a>
           </h3>
           
-          <p>'.$event->body.'</p>
+          <p>'.get_first_sentence($event->body).'</p>
         </div>';
         echo $box;
 
@@ -88,33 +88,33 @@
       <div class="box-wrapper blog">
 
 
-        <div class="box">
-          <img src="./img/blog/1.jpg" alt="">
-            <h3>  
-              <a href="javascript:;">
-                Rihanna, Eminem on stage
-              </a>
-            </h3>   
-          <span>Lorem ipsum dolor sit amet</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+        <?php
 
-        <div class="box">
-          <img src="./img/blog/2.jpg" alt="">
-          <h3>
-            <a href="javascript:;">
-              Rihanna, Eminem on stage
-            </a>
-          </h3>
-          <span>Lorem ipsum dolor sit amet</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+          if(isset($blogs)) {
+
+              foreach ($blogs as $blog) {
+
+              $blog_img = './img/uploads/' . $blog->img;
+              $blog_box = '<div class="box">
+                        <img src="'.$blog_img.'" alt="">
+                          <h3>  
+                            <a href="posts.php?post='.$blog->id.'">'.$blog->title.'</a>
+                          </h3>   
+                        
+                        <p>'.get_first_sentence($blog->body).'</p>
+                      </div>';                
+
+              echo $blog_box;                      
+               } 
+          }
 
 
+
+        ?>
         
       </div>
       <div class="blog-button">
-        <a href="#">see more</a>
+        <a href="posts.php">see more</a>
       </div>
     </section>
     <!-- end blog -->

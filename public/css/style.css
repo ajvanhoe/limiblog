@@ -4,12 +4,14 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+
 .container {
   max-width: 1170px;
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
 }
+
 .title {
   font-size: 40px;
   font-weight: 300;
@@ -375,8 +377,27 @@
 
 
 .event-img {
-  height: 400px;
-  width: 260px;
+  width: 100%;
+}
+
+.post-container {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.post-banner {
+    
+    background-size: cover;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+  }
+
+
+.post-body {
+  margin: 15px;
+  padding: 12px;
+
 }
 
 

@@ -9,3 +9,15 @@ function autoload($classname) {
 		die("nema klase " . $classname);
 	}	
 }
+
+
+function get_first_sentence($text) {
+	$pos = strpos($text, '.');
+
+	if($pos) {
+		return substr($text, 0, $pos+1);
+	} else {
+		return $text;
+	}
+
+}
