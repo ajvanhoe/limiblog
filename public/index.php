@@ -57,7 +57,7 @@
         if(isset($events)) {
 
         foreach ($events as $event) {
-                 
+       
         $img = './img/uploads/' . $event->img;
         $box = '<div class="box">
           <img src="'.$img.'" alt="" class="event-img">
@@ -87,7 +87,6 @@
 
       <div class="box-wrapper blog">
 
-
         <?php
 
           if(isset($blogs)) {
@@ -107,8 +106,6 @@
               echo $blog_box;                      
                } 
           }
-
-
 
         ?>
         
