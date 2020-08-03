@@ -75,7 +75,7 @@
 if(isset($posts)) {
   foreach ($posts as $post) {
 
-    $img = '../public/img/uploads/'.$post->img;
+   $img = (isset($post->img)) ? '../public/img/uploads/'.$post->img : 'https://via.placeholder.com/150';
 
   $html = "";
   $html .=  '<div class="row justify-content-center my-5">';
@@ -87,7 +87,7 @@ if(isset($posts)) {
   $html .= '<p class="card-text">'.$post->body.'</p>';
   $html .= '<a href="edit.php?post='.(int)$post->id.'" class="btn btn-info mr-3">Edit</a>';
   $html .= '<a href="delete.php?post='.(int)$post->id.'" class="btn btn-danger">Delete</a>';   
-  $html .= '</div></div></div>';       
+  $html .= '</div></div></div></div>';       
         
    echo $html;
 

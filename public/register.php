@@ -1,6 +1,9 @@
 <?php
 require_once('../core/start.php');
 
+$username = '';
+$email = '';
+
 if(Input::exists('post')) {
   	// validacija podataka
   	$validate = new Validate();
@@ -52,6 +55,12 @@ if(Input::exists('post')) {
   } else { // u slucaju da validacija nije prosla
     // setovanje gresaka --> Session
     Session::set('errors', $validation->errors());
+    Session::set('data', $_POST);
+
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+
+    
   }
 
 } // if Input::exists
@@ -104,7 +113,8 @@ if(Input::exists('post')) {
             <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-                  <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="required" autofocus="autofocus">
+                
+                  <input type="text" name="username" id="username" value="<?php echo $username; ?>" class="form-control" placeholder="Username" autofocus="autofocus">
                   <label for="firstName">Username</label>
                 </div>
               </div>
@@ -114,7 +124,7 @@ if(Input::exists('post')) {
 
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
+              <input type="email" name="email" value="<?php echo $email; ?>" id="inputEmail" class="form-control" placeholder="Email address">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
@@ -123,13 +133,13 @@ if(Input::exists('post')) {
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
                   <label for="inputPassword">Password</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-label-group">
-                  <input type="password" name="retype" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                  <input type="password" name="retype" id="confirmPassword" class="form-control" placeholder="Confirm password">
                   <label for="confirmPassword">Confirm password</label>
                 </div>
               </div>
